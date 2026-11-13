@@ -116,7 +116,7 @@
   .after{margin:0;}
 
   /* the brief */
-  .brief{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1px;
+  .brief{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px;
     background:var(--line); border:1px solid var(--line); border-radius:18px; overflow:hidden;}
   .brief > div{background:var(--bg2); padding:20px;}
   .brief dt{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
@@ -192,7 +192,7 @@
 <div class="wrap">
 
   <p class="label">A data model, walked through</p>
-  <h1>One change. Nine licences. Nine different answers.</h1>
+  <h1>One change. Nine licences. Four answers, and three nobody can give yet.</h1>
   <p class="lede prose">A take-home assignment: design the data model a regulatory team would
   use to work out what a manufacturing change costs them in every country where their products
   are licensed. No requirements were given. This page walks through what the job turned out to
@@ -215,9 +215,9 @@
           then writing the requirements for it, was the first half of the task.</dd></div>
         <div><dt>The bar they set</dt><dd>The fewest concepts that work. Every field read by a
           story. Nothing stored that can be computed. Say what you cut and why.</dd></div>
+        <div><dt>The clock</dt><dd><em>Twenty-four hours.</em> Everything below is a judgment
+          made against that, not a view from a year of living with the problem.</dd></div>
       </div>
-      <p class="note">So the deliverable is not only a model. It is the reasoning that arrived
-      at the model, which is what the rest of this page walks through.</p>
     </section>
 
     <section>
@@ -232,8 +232,7 @@
       built against the wrong one. The answer gets made against a rulebook that has since been
       replaced. And six months later nobody can say why a call was made, because a cell has no
       author and no reasoning.</p>
-      <p class="note">That list is where the model came from. Everything below exists to
-      make one of those four failures impossible or visible.</p>
+      <p class="note">Those four are what the rest of this page is answering, in order.</p>
     </section>
 
     <section>
@@ -244,12 +243,15 @@
           <b>CC-2026-0417</b>
           <span>Second secondary-packaging site, added by a contract manufacturer</span>
         </div>
+        <p class="note" style="margin:0 0 4px">An invented change across invented licences,
+        seeded so every state the model tells apart shows up once. The categories are my reading
+        of each market's published list, not a regulatory opinion.</p>
 
         <div class="lic reveal" style="animation-delay:60ms" role="button" tabindex="0" aria-expanded="false" data-level="4">
           <div class="where"><b>United States</b><small>NDA 214773</small></div>
           <div class="asks">Tell them, then <em>wait 30 days</em> before switching</div>
           <div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
-        <div class="receipt"><div><div class="receipt-in"><dl><dt>Rule book<dd>US-FDA</dd><dt>Category<dd>CBE-30</dd><dt>Decided by<dd>R. Mensah, Regulatory Affairs CMC</dd><dt>On<dd>4 Mar 2026</dd></dl><p>Secondary packaging site addition. Moderate potential for an adverse effect, so a Changes Being Effected in 30 Days supplement rather than a prior approval supplement. Confirmed against the 2004 guidance with regulatory affairs.</p></div></div></div>
+        <div class="receipt"><div><div class="receipt-in"><dl><dt>Rule book<dd>US-FDA</dd><dt>Category<dd>CBE-30</dd><dt>Decided by<dd>R. Mensah, Regulatory Affairs CMC</dd><dt>On<dd>4 Mar 2026</dd></dl><p>Secondary packaging site addition. Moderate potential for an adverse effect, so a Changes Being Effected in 30 Days supplement rather than a prior approval supplement. Checked against the 2004 guidance.</p></div></div></div>
         </div>
         <div class="lic reveal" style="animation-delay:105ms" role="button" tabindex="0" aria-expanded="false" data-level="3">
           <div class="where"><b>European Union</b><small>EU/1/19/1374</small></div>
@@ -264,22 +266,22 @@
         <div class="receipt"><div><div class="receipt-in"><dl><dt>Rule book<dd>UK-MHRA</dd><dt>Category<dd>IAIN</dd><dt>Decided by<dd>R. Mensah, Regulatory Affairs CMC</dd><dt>On<dd>4 Mar 2026</dd></dl><p>Same change, same conditions met. The MHRA retained the 2013 classification and has not adopted the 2024 reform, so the code and the category both stand unchanged.</p></div></div></div>
         </div>
         <div class="lic reveal" style="animation-delay:195ms" role="button" tabindex="0" aria-expanded="false" data-level="5">
-          <div class="where"><b>Brazil</b><small>1.0298.0411 &middot; the tablet</small></div>
+          <div class="where"><b>Brazil</b><small>1.0298.0411 &middot; synthetic</small></div>
           <div class="asks"><em>Ask permission and wait</em> before switching</div>
           <div class="meter top"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+        <div class="receipt"><div><div class="receipt-in"><dl><dt>Rule book<dd>ANVISA synthetic</dd><dt>Category<dd>PA</dd><dt>Decided by<dd>L. Duarte, Regulatory Affairs Brazil</dd><dt>On<dd>9 Mar 2026</dd></dl><p>A packaging site that is not yet listed on the registration is not in the pre-authorised immediate-implementation annex, so it is filed as an individual petition and awaits a favourable manifestation.</p></div></div></div>
         </div>
         <div class="lic reveal" style="animation-delay:240ms" role="button" tabindex="0" aria-expanded="false" data-level="3">
           <div class="where"><b>Singapore</b><small>SIN 15842P</small></div>
           <div class="asks">Switch now, tell them within six months <span class="pill warn">licence suspended</span></div>
           <div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
-        <div class="receipt"><div><div class="receipt-in"><dl><dt>Rule book<dd>SG-HSA</dd><dt>Category<dd>MIV-2 do-and-tell</dd><dt>Decided by<dd>R. Mensah, Regulatory Affairs CMC</dd><dt>On<dd>4 Mar 2026</dd></dl><p>Secondary packaging site addition falls in the do-and-tell minor variation tier, implementable now and submitted within six months. Tier confirmed with the local affiliate.</p><p class="moved">What moved: this licence is no longer valid. It was suspended after the call was made.</p></div></div></div>
-        <div class="receipt"><div><div class="receipt-in"><dl><dt>Rule book<dd>ANVISA synthetic</dd><dt>Category<dd>PA</dd><dt>Decided by<dd>L. Duarte, Regulatory Affairs Brazil</dd><dt>On<dd>9 Mar 2026</dd></dl><p>A packaging site that is not yet listed on the registration is not in the pre-authorised immediate-implementation annex, so it is filed as an individual petition and awaits a favourable manifestation. Local affiliate consulted.</p></div></div></div>
+        <div class="receipt"><div><div class="receipt-in"><dl><dt>Rule book<dd>SG-HSA</dd><dt>Category<dd>MIV-2 do-and-tell</dd><dt>Decided by<dd>R. Mensah, Regulatory Affairs CMC</dd><dt>On<dd>4 Mar 2026</dd></dl><p>Secondary packaging site addition falls in the do-and-tell minor variation tier, implementable now and submitted within six months. The rationale field is where who was consulted gets written down.</p><p class="moved">What moved: this licence is no longer valid. It was suspended after the call was made.</p></div></div></div>
         </div>
         <div class="lic reveal" style="animation-delay:285ms" role="button" tabindex="0" aria-expanded="false" data-level="3">
-          <div class="where"><b>Brazil</b><small>1.0298.0533 &middot; the injectable</small></div>
+          <div class="where"><b>Brazil</b><small>1.0298.0533 &middot; biological</small></div>
           <div class="asks">Switch now, tell them immediately</div>
           <div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
-        <div class="receipt"><div><div class="receipt-in"><dl><dt>Rule book<dd>ANVISA biological</dd><dt>Category<dd>MENOR</dd><dt>Decided by<dd>L. Duarte, Regulatory Affairs Brazil</dd><dt>On<dd>9 Mar 2026</dd></dl><p>Same market and the same physical change as the tablet above, but a biological product, so the biological resolution applies and reaches a different answer. Secondary packaging only, no impact on quality.</p></div></div></div>
+        <div class="receipt"><div><div class="receipt-in"><dl><dt>Rule book<dd>ANVISA biological</dd><dt>Category<dd>MENOR</dd><dt>Decided by<dd>L. Duarte, Regulatory Affairs Brazil</dd><dt>On<dd>9 Mar 2026</dd></dl><p>Same market and the same physical change as the synthetic row above, but a biological product, so the biological resolution applies and reaches a different answer. Secondary packaging only, no impact on quality.</p></div></div></div>
         </div>
         <div class="lic reveal" style="animation-delay:330ms" role="button" tabindex="0" aria-expanded="false" data-level="0">
           <div class="where"><b>Argentina</b><small>Cert. 59.118</small></div>
@@ -301,10 +303,10 @@
         </div>
 
         <p class="foot">Two more licences are held but untouched by this change.
-        <em>Brazil is the strictest</em>, so nothing ships anywhere until Brazil says yes.</p>
+        <em>Brazil is the strictest</em>, so Brazil sets the constraint the filing plan has to clear.</p>
       </div>
       <p class="note"><span style="color:var(--accent)">Tap any row</span> for the receipt: who decided it, when, and why. Same physical change, every time. Notice the two Brazilian rows: one
-      country, two answers, because one product is a tablet and the other is an injectable.
+      country, two answers, because one product is a synthetic medicine and the other is a biological.
       And the European row is one line covering thirty countries.</p>
     </section>
 
@@ -312,8 +314,10 @@
       <p class="label">4 &middot; Why the answers differ</p>
       <h2>Each market grades the same change on its own scale</h2>
       <p class="prose">Every authority publishes its own list of categories under its own
-      names. What actually travels between them is not the name. It is how much permission the
-      category demands before you are allowed to act.</p>
+      names. What travels between them is not the name. It is how much permission the category
+      demands before you are allowed to act, and that is the one thing all ten rulebooks agree
+      is a thing. The scale below is ordered by it, which is the only reason a market in Brazil
+      can be compared with one in Singapore at all.</p>
       <div class="card">
         <div class="rung" data-level="1" role="button" tabindex="0">
           <span class="meter"><i class="on"></i><i></i><i></i><i></i><i></i></span>
@@ -327,7 +331,7 @@
         </div>
         <div class="rung" data-level="3" role="button" tabindex="0">
           <span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
-          <span class="says">Do it, and file it the same day.</span>
+          <span class="says">Do it, then file it. Days, not months, and each book sets its own window.</span>
           <span class="code">notify_at_implementation</span>
         </div>
         <div class="rung" data-level="4" role="button" tabindex="0">
@@ -347,21 +351,25 @@
         </div>
         <div class="rung exit">
           <span class="pill">off the scale</span>
-          <span class="says">It depends on a deal struck earlier, not on this change.</span>
+          <span class="says">It turns on something other than this change: a protocol agreed with the regulator in advance, or a tier the authority assigns case by case.</span>
           <span class="code">content_dependent</span>
         </div>
       </div>
-      <p class="note"><span style="color:var(--accent)">Hover or tap a rung</span> to see which licences landed on it. Five rungs can be ranked, so the strictest market can be named before the
-      other forty are done. The bottom two are not rungs, they are exits, and they are counted
-      on their own. That is the whole reason the first list could say Brazil governs.</p>
+      <p class="note">That tag is the only thing in the research folder that compares one
+      market to another, which is why the model is built on it.
+      <span style="color:var(--accent)">Hover or tap a rung</span> to see which licences land
+      there. The bottom two are exits, not rungs, and are counted on their own. That is the reason
+      the first list could call Brazil the strictest.</p>
     </section>
 
     <section>
       <p class="label">5 &middot; The modelling problem</p>
       <h2>A rule book and a place are not the same thing</h2>
-      <p class="prose">The source material files everything under one column called
-      <code>jurisdiction</code>. Treat that as a list of countries and three ordinary cases
-      stop working.</p>
+      <p class="prose">The research folder files everything under one column called
+      <code>jurisdiction</code>, and that one column turned out to hold five unrelated kinds of
+      thing: a country with one rulebook, a framework shared by thirty, a guideline nobody
+      files with, three unrelated countries lumped together, and a procurement listing. Treat
+      it as a list of countries and three ordinary cases stop working.</p>
       <div class="cases">
         <div class="card">
           <svg viewBox="0 0 190 64" width="100%" height="64" role="img" aria-label="A guideline with no markets attached to it">
@@ -377,9 +385,9 @@
         <div class="card">
           <svg viewBox="0 0 190 64" width="100%" height="64" role="img" aria-label="Brazil, one country served by two books">
             <rect x="2" y="4" width="78" height="22" rx="6" fill="rgba(41,151,255,.12)" stroke="var(--accent)" stroke-width="1"></rect>
-            <text x="41" y="19" text-anchor="middle" font-family="ui-monospace, SF Mono, monospace" font-size="9" fill="var(--accent)">tablet book</text>
+            <text x="41" y="19" text-anchor="middle" font-family="ui-monospace, SF Mono, monospace" font-size="9" fill="var(--accent)">synthetic book</text>
             <rect x="2" y="38" width="78" height="22" rx="6" fill="rgba(41,151,255,.12)" stroke="var(--accent)" stroke-width="1"></rect>
-            <text x="41" y="53" text-anchor="middle" font-family="ui-monospace, SF Mono, monospace" font-size="9" fill="var(--accent)">injectable book</text>
+            <text x="41" y="53" text-anchor="middle" font-family="ui-monospace, SF Mono, monospace" font-size="9" fill="var(--accent)">biological book</text>
             <line x1="80" y1="15" x2="116" y2="28" stroke="rgba(255,255,255,.2)" stroke-width="1"></line>
             <line x1="80" y1="49" x2="116" y2="36" stroke="rgba(255,255,255,.2)" stroke-width="1"></line>
             <rect x="116" y="21" width="70" height="22" rx="6" fill="var(--chip)" stroke="var(--line)" stroke-width="1"></rect>
@@ -442,12 +450,24 @@
           which edition of the book they used.</span>
         </div>
       </div>
-      <p class="note">Five models in total, counting the change itself. The brief asked for the
-      fewest concepts that do the job, and for every field to be read by something.</p>
+      <p class="note">Eight models in all. Three came with the brief, the product, the change
+      and the dosage form; the five above are what this task added. The bar was the fewest
+      concepts that do the job, and every field read by something.</p>
+
+      <h3 style="margin-top:36px">The decision the rest hangs on</h3>
+      <p class="prose">The rulebook could have hung off the market. That was the first draft,
+      and all three cases above break under it. ASEAN needs a market it can attach to and has
+      none. Brazil needs its market to point at two books at once. And a European licence
+      covering thirty countries has to pick one of them to carry the book.</p>
+      <p class="prose">Hanging it off the licence instead costs nothing: Brazil becomes two
+      seeded rows rather than a new concept, the three European licences share one book, and no
+      market has to claim a book it could not claim correctly. What it costs is that a licence
+      now stores something the model could work out for itself, which the brief's own bar
+      argues against. That trade is declared in the memo rather than hidden.</p>
     </section>
 
     <section>
-      <p class="label">7 &middot; The part nobody asked for</p>
+      <p class="label">7 &middot; The bet this build makes</p>
       <h2>An answer can rot while you are not looking</h2>
       <div class="card">
         <div class="rail">
@@ -472,21 +492,23 @@
       time you look, never stored, so it can never disagree with the facts it is summarising.
       Licences lapse too, which is why Singapore is flagged above.</p>
       <p class="note">One thing moving is enough. No scores and no percentages, because the
-      rules are yes-or-no and nobody can file a 73 percent confidence.</p>
+      rules are yes-or-no and nobody can file a 73 percent confidence. And the flag is a prompt
+      to look again, not a finding: the regulator keys the rulebook to the date you submit, not
+      the date you decided, and matching those two is outside what this build covers.</p>
     </section>
 
     <section>
       <p class="label">8 &middot; How the calls got made</p>
-      <h2>What the research actually contained, and what it did not</h2>
-      <p class="prose">The research folder is five files written for the domain team's own
+      <h2>What the research folder contained, and what it did not</h2>
+      <p class="prose">The folder handed over at the start is five files, written for the domain team's own
       purposes, not for a model. It holds every market's list of categories, a per-country
       summary, and two sets of notes. Reading it closely decided most of the model.</p>
       <div class="card">
         <dl class="gave">
           <dt>What it gave</dt>
           <dd><b>64 categories across ten rulebooks</b>, each tagged with what it demands of
-          you. That tag is the only thing in the whole folder that compares one market to
-          another, which is why the strictness scale is built on it.</dd>
+          you. It tracks nineteen rulebooks and gives the category list for ten of them, so the
+          gap is visible in the folder itself.</dd>
 
           <dt>What it hid</dt>
           <dd>Its own column headings. One column called <code>jurisdiction</code> held five
@@ -494,8 +516,9 @@
 
           <dt>What I checked</dt>
           <dd>All 64 rows re-derived from their own definitions rather than trusted.
-          <b>56 agreed.</b> The eight that did not are declared, with the reason, on the rows
-          themselves.</dd>
+          <b>56 agreed.</b> What the check caught: the same concept, a change too big to be a
+          variation, typed two different ways across five rulebooks. The eight are declared in
+          the memo under the two rules that explain all of them.</dd>
 
           <dt>What it lacks</dt>
           <dd>The index saying which kind of change lands in which category. Every market
@@ -503,13 +526,17 @@
           product records a decision instead of making one.</dd>
 
           <dt>Where it breaks</dt>
-          <dd>Two files contradict each other on the same question twice, and a quarter of the
-          definitions stop mid-sentence. Both are flagged in the model rather than tidied away,
+          <dd>The same two files disagree in three places: Brazil's codes, Argentina's codes,
+          and whether the US has a tier that needs no filing at all. And a quarter of the
+          definitions stop mid-sentence. Both are marked in the model rather than tidied away,
           because a clean-looking row that is secretly cut off is worse than a visibly cut one.</dd>
         </dl>
       </div>
       <p class="note">Where the folder settles nothing, the model says so and names who should
-      decide. Five such questions are carried forward rather than guessed at.</p>
+      decide. Five such questions are carried forward rather than guessed at. Two bugs in the
+      starter code (frozen reference rows that can't be hashed, a version stamp meant for a
+      timestamp that isn't there) are named and left alone the same way: a take-home is not the
+      place to rewrite scaffolding you were handed.</p>
     </section>
 
     <section>
