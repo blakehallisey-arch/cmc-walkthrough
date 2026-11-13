@@ -115,6 +115,26 @@
   .stop span{grid-column:2; font-size:13px; color:var(--muted); line-height:1.45;}
   .after{margin:0;}
 
+  /* the brief */
+  .brief{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:18px; overflow:hidden;}
+  .brief > div{background:var(--bg2); padding:20px;}
+  .brief dt{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:8px;}
+  .brief dd{margin:0; font-size:15px; line-height:1.5;}
+  .brief dd em{font-style:normal; color:var(--accent);}
+
+  .gave{display:grid; grid-template-columns:auto 1fr; gap:10px 16px; align-items:baseline;
+    margin:0; font-size:15px;}
+  .gave dt{font-family:var(--mono); font-size:11px; letter-spacing:0; color:var(--accent);
+    white-space:nowrap;}
+  .gave dd{margin:0; color:var(--muted);}
+  .gave dd b{color:var(--fg); font-weight:600;}
+
+  .close{border-left:2px solid var(--accent); padding-left:20px;}
+  .close p{font-size:19px; line-height:1.5; letter-spacing:-.02em;}
+  .close p:last-child{margin-bottom:0;}
+
 
   /* --- interaction --- */
   .lic{cursor:pointer; border-radius:12px; padding-inline:12px; margin-inline:-12px;
@@ -173,15 +193,52 @@
 
   <p class="label">A data model, walked through</p>
   <h1>One change. Nine licences. Nine different answers.</h1>
-  <p class="lede prose">A contract manufacturer adds a second packaging site. The recipe, the
-  process and the specification are untouched. Somebody still has to work out what that costs
-  the company in every country where the affected products are sold, and one of the answers
-  they wrote down last month is already wrong.</p>
+  <p class="lede prose">A take-home assignment: design the data model a regulatory team would
+  use to work out what a manufacturing change costs them in every country where their products
+  are licensed. No requirements were given. This page walks through what the job turned out to
+  be, what the model does about it, and what it deliberately leaves undone.</p>
 
   <div class="stack" style="margin-top:64px">
 
     <section>
-      <p class="label">1 &middot; What lands on the desk</p>
+      <p class="label">1 &middot; The assignment</p>
+      <h2>A folder, some research, and no requirements</h2>
+      <p class="prose">A pharmaceutical software company handed over a repository containing a
+      worked example of three tiny data models and a folder of their domain team's research.
+      The task was to design the rest of the data model: where products are licensed, who
+      regulates those places, what categories a change can fall into, and the answer a user
+      records for each product in each place.</p>
+      <div class="brief">
+        <div><dt>What they asked for</dt><dd>User stories with acceptance criteria, the models
+          and seed rows, and a one-page memo.</dd></div>
+        <div><dt>What they withheld</dt><dd><em>The requirements.</em> Working out the real job,
+          then writing the requirements for it, was the first half of the task.</dd></div>
+        <div><dt>The bar they set</dt><dd>The fewest concepts that work. Every field read by a
+          story. Nothing stored that can be computed. Say what you cut and why.</dd></div>
+      </div>
+      <p class="note">So the deliverable is not only a model. It is the reasoning that arrived
+      at the model, which is what the rest of this page walks through.</p>
+    </section>
+
+    <section>
+      <p class="label">2 &middot; The real job</p>
+      <h2>Somebody has to answer the same question forty times</h2>
+      <p class="prose">A drug is sold in dozens of countries, and each one licenses it
+      separately. When the manufacturer changes anything, a regulatory affairs manager has to
+      work out what that change costs in every one of those countries before anybody is allowed
+      to act. Today that is a spreadsheet and a colleague who remembers things.</p>
+      <p class="prose">Four things go wrong. A market gets missed, and a blank cell looks the
+      same as a cell somebody checked. The strictest country is found last, after the plan was
+      built against the wrong one. The answer gets made against a rulebook that has since been
+      replaced. And six months later nobody can say why a call was made, because a cell has no
+      author and no reasoning.</p>
+      <p class="note">That list is where the model came from. Everything below exists to
+      make one of those four failures impossible or visible.</p>
+    </section>
+
+    <section>
+      <p class="label">3 &middot; What lands on the desk</p>
+      <h2>One change, nine licences</h2>
       <div class="card">
         <div class="head">
           <b>CC-2026-0417</b>
@@ -252,7 +309,7 @@
     </section>
 
     <section>
-      <p class="label">2 &middot; Why the answers differ</p>
+      <p class="label">4 &middot; Why the answers differ</p>
       <h2>Each market grades the same change on its own scale</h2>
       <p class="prose">Every authority publishes its own list of categories under its own
       names. What actually travels between them is not the name. It is how much permission the
@@ -300,7 +357,7 @@
     </section>
 
     <section>
-      <p class="label">3 &middot; The modelling problem</p>
+      <p class="label">5 &middot; The modelling problem</p>
       <h2>A rule book and a place are not the same thing</h2>
       <p class="prose">The source material files everything under one column called
       <code>jurisdiction</code>. Treat that as a list of countries and three ordinary cases
@@ -357,7 +414,7 @@
     </section>
 
     <section>
-      <p class="label">4 &middot; What it stores</p>
+      <p class="label">6 &middot; What it stores</p>
       <h2>Four questions, and what answers each one</h2>
       <div class="card">
         <div class="q">
@@ -390,7 +447,7 @@
     </section>
 
     <section>
-      <p class="label">5 &middot; The part nobody asked for</p>
+      <p class="label">7 &middot; The part nobody asked for</p>
       <h2>An answer can rot while you are not looking</h2>
       <div class="card">
         <div class="rail">
@@ -419,16 +476,98 @@
     </section>
 
     <section>
-      <p class="label">6 &middot; What it deliberately cannot do</p>
-      <h2>It records the decision. It does not make it.</h2>
-      <p class="prose">Every market publishes its list of categories. None of them, in the
-      material provided, publishes the index saying which kind of change lands in which
-      category. So a qualified person makes the call, and this holds it, keeps track of which
-      licences still need one, and says when a recorded call has been undermined.</p>
-      <p class="note">Also left out on purpose: what is actually registered in each market,
-      which some limits are measured against, and grouped filings, where one change matches
-      several entries at once. Both are named in the memo with what would make them worth
-      building.</p>
+      <p class="label">8 &middot; How the calls got made</p>
+      <h2>What the research actually contained, and what it did not</h2>
+      <p class="prose">The research folder is five files written for the domain team's own
+      purposes, not for a model. It holds every market's list of categories, a per-country
+      summary, and two sets of notes. Reading it closely decided most of the model.</p>
+      <div class="card">
+        <dl class="gave">
+          <dt>What it gave</dt>
+          <dd><b>64 categories across ten rulebooks</b>, each tagged with what it demands of
+          you. That tag is the only thing in the whole folder that compares one market to
+          another, which is why the strictness scale is built on it.</dd>
+
+          <dt>What it hid</dt>
+          <dd>Its own column headings. One column called <code>jurisdiction</code> held five
+          unrelated kinds of thing, which is where the three cases above came from.</dd>
+
+          <dt>What I checked</dt>
+          <dd>All 64 rows re-derived from their own definitions rather than trusted.
+          <b>56 agreed.</b> The eight that did not are declared, with the reason, on the rows
+          themselves.</dd>
+
+          <dt>What it lacks</dt>
+          <dd>The index saying which kind of change lands in which category. Every market
+          publishes one. <b>None of them is in the folder.</b> That single absence is why the
+          product records a decision instead of making one.</dd>
+
+          <dt>Where it breaks</dt>
+          <dd>Two files contradict each other on the same question twice, and a quarter of the
+          definitions stop mid-sentence. Both are flagged in the model rather than tidied away,
+          because a clean-looking row that is secretly cut off is worse than a visibly cut one.</dd>
+        </dl>
+      </div>
+      <p class="note">Where the folder settles nothing, the model says so and names who should
+      decide. Five such questions are carried forward rather than guessed at.</p>
+    </section>
+
+    <section>
+      <p class="label">9 &middot; The outliers</p>
+      <h2>What a first build knowingly gets wrong</h2>
+      <p class="prose">Each of these is a real case, left out on purpose, with the thing that
+      would make it worth building written next to it.</p>
+      <div class="card">
+        <div class="q">
+          <span class="ask">What is actually on file</span>
+          <span class="name">build it first</span>
+          <span class="holds">Some limits are measured against the recipe as originally
+          approved, not against the change, so those cannot be judged without holding the
+          registered dossier. This is the biggest gap and the one that matters soonest.</span>
+        </div>
+        <div class="q">
+          <span class="ask">One change, several entries</span>
+          <span class="name">build it second</span>
+          <span class="holds">A single change can match more than one entry in one market's
+          index, and filing changes together re-grades them. The model records one answer per
+          licence, which is the strictest arising, and loses the fact that it came from
+          several.</span>
+        </div>
+        <div class="q">
+          <span class="ask">Pre-agreed shortcuts</span>
+          <span class="name">build it third</span>
+          <span class="holds">A company can agree a protocol with a regulator in advance that
+          lowers the category for a future change. The categories for those exist here; nothing
+          joins a change to an agreement, so the person applies it by hand.</span>
+        </div>
+        <div class="q">
+          <span class="ask">Licence detail</span>
+          <span class="name">when a story needs it</span>
+          <span class="holds">Who holds the licence, when it expires, whether the new site's
+          inspection is still current. Each is one field, and none of them is read by anything
+          yet, so none of them is in.</span>
+        </div>
+      </div>
+      <p class="note">The rule applied throughout: a field exists only if something reads it.
+      Several of these were in an earlier draft and came out when nothing turned out to need
+      them.</p>
+    </section>
+
+    <section>
+      <p class="label">10 &middot; So what</p>
+      <h2>What this is worth on a Monday</h2>
+      <div class="close">
+        <p>It does not tell you the answer. It makes sure you were asked the question in every
+        country, it keeps the reasoning attached to the answer, and it tells you when something
+        the answer depended on has moved.</p>
+        <p>That is a smaller claim than an engine, and it is a true one. The folder does not
+        contain what an engine would need, and building one anyway would mean inventing rules
+        in a field where an invented rule is the worst thing you can ship.</p>
+      </div>
+      <p class="note">The honest open question, carried into the model rather than resolved in
+      it: is the expensive part making the call, or finding out later that a call you already
+      made no longer holds? Everything in section 7 rests on the second. If a regulatory lead
+      says it is the first, that part shrinks and the index encoder comes first instead.</p>
     </section>
 
   </div>
